@@ -1,3 +1,3 @@
-function AboutController($scope) {
-
-}
+angular.module("taskList")
+    .controller('aboutController', function($scope, $routeParams) {  
+});

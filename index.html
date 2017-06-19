@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="mainModule">
+<html ng-app="taskList">
 
 <head>
 	<title>Task list</title>
@@ -9,19 +9,18 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
-
-<body>
+<body ng-controller="mainController">
 	
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid" >
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">
+				<a class="navbar-brand" ng-click="setRoute('/home')">
 					<img src="img/logo.svg" alt="Do it.">
 				</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="/">My tasks</a></li>
-				<li><a href="/about">About</a></li>
+				<li><a ng-click="setRoute('/home')">My tasks</a></li>
+				<li><a ng-click="setRoute('/about')">About</a></li>				
 			</ul>
 		</div>
 	</nav>
@@ -30,15 +29,15 @@
 		<main ng-view></main>
 	</div>
 
-
-	<!--<script src="phonegap.js"></script> need to investigate-->
-	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/angular-route.min.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="modules/module.main.js"></script>
 	<script type="text/javascript" src="controllers/controller.main.js"></script>
+	<script type="text/javascript" src="controllers/controller.home.js"></script>
 	<script type="text/javascript" src="controllers/controller.about.js"></script>
-	<script type="text/javascript" src="modules/module.main.js"></script>	
-
+	<script src="phonegap.js"></script>
+		
 </body>
 </html>
