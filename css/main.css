@@ -1,0 +1,178 @@
+body {
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F3F4F5;
+  color: #141D38; }
+
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-weight: bold; }
+
+/* code reuse: https://codepen.io/Vestride/pen/dABHx
+These styled checkboxes aren't good practice for web asseccibility.
+But fine for personal use. */
+.styled-checkbox {
+  position: absolute;
+  opacity: 0; }
+  .styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0; }
+  .styled-checkbox + label:before {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    content: '';
+    margin-right: 10px;
+    margin-top: -1px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border: 2px solid #79C2AB; }
+  .styled-checkbox:focus + label:before {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12); }
+  .styled-checkbox:checked + label:before {
+    -webkit-transition: all ease 0.5s;
+    -moz-transition: all ease 0.5s;
+    -ms-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    background: #10BD85;
+    border-color: #10BD85; }
+  .styled-checkbox:disabled + label {
+    color: #b8b8b8;
+    cursor: auto; }
+  .styled-checkbox:disabled + label:before {
+    box-shadow: none;
+    background: #ddd; }
+  .styled-checkbox:checked + label:after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background: center url("../img/check.svg") no-repeat;
+    position: absolute;
+    top: -1px;
+    left: 0; }
+
+/* end styled checkbox */
+/* bootstrap overrides start: */
+label {
+  font-weight: normal;
+  margin-bottom: 0; }
+
+.form-control {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  box-shadow: none;
+  border-color: #B5BACA;
+  font-size: 1em;
+  height: 40px;
+  color: #141D38; }
+  .form-control:focus {
+    -webkit-box-shadow: 0 0 8px rgba(29, 164, 120, 0.4);
+    -moz-box-shadow: 0 0 8px rgba(29, 164, 120, 0.4);
+    -ms-box-shadow: 0 0 8px rgba(29, 164, 120, 0.4);
+    box-shadow: 0 0 8px rgba(29, 164, 120, 0.4);
+    border-color: #10BD85; }
+
+.navbar-inverse {
+  background-color: #141D38;
+  border-radius: 0;
+  border: 0; }
+  .navbar-inverse .navbar-brand > img {
+    margin-top: 2px; }
+  .navbar-inverse .navbar-nav > li a {
+    color: white; }
+    .navbar-inverse .navbar-nav > li a.active {
+      border: 1px solid white; }
+
+.navbar-nav > li {
+  float: left; }
+
+.navbar-header {
+  float: left; }
+
+.navbar-right {
+  float: right;
+  margin-right: -15px; }
+
+/* bootstrap overrides END */
+.task-List {
+  position: relative; }
+  .task-List h1 {
+    text-align: center;
+    margin: 0.2em 0 0.7em 0; }
+  .task-List .add-btn {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    background: #10BD85 center url("../img/add.svg") no-repeat;
+    border: 0;
+    width: 40px;
+    height: 40px;
+    float: right;
+    margin-top: 27px; }
+    .task-List .add-btn:active {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      -ms-box-shadow: none;
+      box-shadow: none;
+      -webkit-transition: all ease 0.3s;
+      -moz-transition: all ease 0.3s;
+      -ms-transition: all ease 0.3s;
+      transition: all ease 0.3s;
+      background-color: #1DA478;
+      margin-top: 25px; }
+    .task-List .add-btn:focus {
+      outline: 0;
+      /* This is bad practice for accessibility. But for personal use it's ok. */ }
+  .task-List .form-group.add-item-wrapper {
+    display: inline-block;
+    width: calc(100% - 50px); }
+    .task-List .form-group.add-item-wrapper label {
+      margin-bottom: 5px; }
+  .task-List .tile {
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    background-color: white; }
+    .task-List .tile ul {
+      padding-left: 0; }
+      .task-List .tile ul li.list-item {
+        list-style: none;
+        padding: 0.5em 0;
+        margin: 0 0.8em;
+        border-top: 1px solid #B5BACA; }
+        .task-List .tile ul li.list-item .delete {
+          width: 30px;
+          height: 30px;
+          background: center url(../img/delete.svg) no-repeat;
+          float: right;
+          margin: -4px -7px 0 0;
+          vertical-align: top; }
+          .task-List .tile ul li.list-item .delete:hover {
+            cursor: pointer; }
+      .task-List .tile ul li.list-item:first-child {
+        padding-top: 0.6em;
+        border-top: 0; }
+      .task-List .tile ul li.no-items {
+        display: block;
+        padding: 1.5em;
+        text-align: center; }
+      .task-List .tile ul li + li.no-items {
+        display: none; }
+
+/*# sourceMappingURL=main.css.map */

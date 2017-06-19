@@ -1,0 +1,23 @@
+<div class="task-List">
+    <h1>My tasks</h1>
+    <form>
+        <div class="form-group add-item-wrapper">
+            <label for="newItemInput">Add a new list item</label>
+            <input type="text" class="form-control" ng-model="newItem.name" id="newItemInput">
+        </div>
+        <button type="submit" class="add-btn" ng-click="addNewListItems()"></button>
+    </form>
+    
+    <div class="tile">
+        <ul>
+            <li class="list-item" ng-repeat="listItem in toDoList"> <!-- two way data binding with Angular -->
+                <input class="styled-checkbox" type="checkbox" id="styled-checkbox-{{$index}}"> <!-- {{$index}} creates a unique ID for each checkbox/label pair -->
+                <label for="styled-checkbox-{{$index}}">{{listItem.name}}</label>
+                <a ng-click="removeListItem($index)" class="delete"></a>
+            </li>
+            <li class="no-items"> <!-- This is hidden with css as soon as there is more than one li. In other words, when the user adds a task. -->
+                Go on! Add some stuff here. ;)
+            </li>            
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<?xml version='1.2' encoding='utf-8'?>
+<widget id="com.jess.angulartaskapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Task List</name>
+    <description>
+        A simple lightweight task list. Easy to add, remove and check off tasks.
+    </description>
+    <author email="jessica.benson@digitalskillsacademy.me">
+        Jessica Benson
+    </author>
+
+    <content src="index.html" />
+
+    <icon src="img/android/icon/icon.png" />
+    <platform name="android">
+        <icon src="img/android/icon/ldpi.png" qualifier="ldpi" />
+        <icon src="img/android/icon/mdpi.png" qualifier="mdpi" />
+        <icon src="img/android/icon/hdpi.png" qualifier="hdpi" />
+        <icon src="img/android/icon/xhdpi.png" qualifier="xhdpi" />
+        <icon src="img/android/icon/xxhdpi.png" qualifier="xxhdpi" />
+        <icon src="img/android/icon/fr-xxhdpi.png" qualifier="fr-xxhdpi" />        
+    </platform>
+
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <engine name="android" spec="~6.2.3" />
+</widget>

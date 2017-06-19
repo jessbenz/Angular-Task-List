@@ -1,0 +1,176 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F3F4F5;
+    color: $primary-colour;
+}
+h1 {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+}
+
+/* code reuse: https://codepen.io/Vestride/pen/dABHx
+These styled checkboxes aren't good practice for web asseccibility.
+But fine for personal use. */
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+  & + label {
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+  }
+  & + label:before {
+    @include border-radius(50%);
+    content: '';
+    margin-right: 10px;
+    margin-top: -1px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: $checkbox-size;
+    height: $checkbox-size;
+    background: white;
+    border: 2px solid $checkbox-border-colour;
+  }
+  &:focus + label:before {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+  }
+  &:checked + label:before {
+    @include transition(0.5s);
+    background: $call-to-action-colour;
+    border-color: $call-to-action-colour;
+  }
+  &:disabled + label {
+    color: #b8b8b8;
+    cursor: auto;
+  }
+  &:disabled + label:before {
+    box-shadow: none;
+    background: #ddd;
+  }
+  &:checked + label:after {
+    content: '';
+    width: $checkbox-size;
+    height: $checkbox-size;
+    background: center url("../img/check.svg") no-repeat;
+    position: absolute;
+    top: -1px;
+    left: 0;
+  }
+} /* end styled checkbox */
+
+/* bootstrap overrides start: */
+label {
+    font-weight: normal;
+    margin-bottom: 0;
+}
+.form-control {
+    @include box-shadow-custom(none);
+    border-color: #B5BACA;
+    font-size: 1em;
+    height: 40px;
+    color: $primary-colour;
+    &:focus {
+        @include box-shadow-custom(0 0 8px rgba(29,164,120,.4));
+        border-color: $call-to-action-colour;
+    }
+}
+.navbar-inverse {
+    background-color: $primary-colour;
+    border-radius: 0;
+    border: 0;
+    .navbar-brand > img {
+        margin-top: 2px;
+    }
+    .navbar-nav > li a {
+        color: white;
+        &.active {
+            border: 1px solid white;
+        }
+    }
+}
+.navbar-nav > li {
+    float: left;
+}
+.navbar-header {
+    float: left;
+}
+.navbar-right {
+    float: right;
+    margin-right: -15px;
+}
+/* bootstrap overrides END */
+
+.task-List {
+    position: relative;
+    h1 {
+        text-align: center;
+        margin: 0.2em 0 0.7em 0;
+    }
+    .add-btn {
+        @include border-radius(50%);
+        @include tile-box-shadow;
+        background: $call-to-action-colour center url("../img/add.svg") no-repeat;
+        border: 0;
+        width: 40px;
+        height: 40px;
+        float: right;
+        margin-top: 27px;
+        &:active {
+            @include box-shadow-custom(none);
+            @include transition(0.3s);
+            background-color: $call-to-action-colour-dark;
+            margin-top: 25px;
+        }
+        &:focus {
+            outline: 0; /* This is bad practice for accessibility. But for personal use it's ok. */
+        }
+    }
+    .form-group.add-item-wrapper {
+        display: inline-block;
+        width: calc(100% - 50px);
+        label {
+            margin-bottom: 5px;
+        }
+    }
+    .tile {
+        @include tile-box-shadow;
+        @include border-radius(5px);
+        background-color: white;
+        ul {
+            padding-left: 0;
+            li.list-item {
+                list-style: none;
+                padding: 0.5em 0;
+                margin: 0 0.8em;
+                border-top: 1px solid $row-divider-colour;
+                .delete {
+                    width: 30px;
+                    height: 30px;
+                    background: center url(../img/delete.svg) no-repeat;
+                    float: right;
+                    margin: -4px -7px 0 0;
+                    vertical-align: top;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            li.list-item:first-child {
+                padding-top: 0.6em;
+                border-top: 0;
+            }
+            li.no-items {
+                display: block;
+                padding: 1.5em;
+                text-align: center;                
+            }
+            li + li.no-items {
+                display: none;
+            }            
+        }
+    }
+}
